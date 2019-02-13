@@ -29,7 +29,7 @@ spec](/portworx-install-with-kubernetes/px-k8s-spec-curl), you can add
 
 ## Impact on applications
 
-The only affected object is the [_StorageClass_](https://kubernetes-csi.github.io/docs/Usage.html#dynamic-provisioning).
+The only affected object is the StorageClass.
 For any StorageClasses created, you will need to setup the value of `provisioner`
 to `com.openstorage.pxd`. Here is an example:
 
