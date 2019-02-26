@@ -141,7 +141,7 @@ series: reference
 * PWX-7291 Detect ssd based pools and mount with nossd if kernel version is less than 4.15
 * PWX-7214 LIC: Goroutine leak at license watch re-supscription
 * PWX-7143 LIC: Should hard-code "absolute maximums" into License evaluations
-* PWX-7142 LIC: SuperMicro misinterpreted as VM [roblox]
+* PWX-7142 LIC: SuperMicro misinterpreted as VM  
 
 ## 1.7.3
 
