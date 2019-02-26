@@ -6,6 +6,40 @@ keywords: portworx, release notes
 series: reference
 ---
 
+## 1.7.7
+
+* PWX-7315 - Fix a corner case where increasing the replication factor of a volume can take much longer when there are multiple levels of volume clones
+
+## 1.7.6
+
+* PWX-7304 - PX keeps restarting, if journal device made read-only
+* PWX-7348 - PX keeps restarting, VM reboot after journal device made “offline”
+* PWX-7453 - cloudsnap cleanup didn't complete properly in cases where errors were encountered when tranmitting the diffs
+* PWX-7481 - Shared volume mounts fail when clients connections abruptly lost and not cleaned up properly
+* PWX-7600 - Volume mount status might be incorrectly displayed when the node where the volume is attached hits a storage full condition and replicas on that node are moved to a new node
+
+
+## 1.7.5
+
+* PWX-7364 Namespace stuck volume issue 
+* PWX-7299 export pool_status as a stat for prometheus
+* PWX-7267 LIC: Hide unknown/non-handled licenses
+* PWX-7212 Cloudsnap-Restore: Increase restore verbose level for error cases
+* PWX-7179 io1 volume added to KOPS cluster gets displayed as STORAGE_MEDIUM_MAGNETIC
+* PWX-7033 Objectstore endpoint failover not happening
+
+## 1.7.4
+
+* PWX-7292 For all storage errors retry 3 times before making pool offline
+* PWX-7291 Detect ssd based pools and mount with nossd if kernel version is less than 4.15
+* PWX-7214 LIC: Goroutine leak at license watch re-supscription
+* PWX-7143 LIC: Should hard-code "absolute maximums" into License evaluations
+* PWX-7142 LIC: SuperMicro misinterpreted as VM  
+
+## 1.7.3
+
+* Provide a runtime option to enable more compact data out of flash media to avoid disk fragementation
+* Fix an issue with NVMe/SSD disks being shown as Magnetic disks 
 
 ## 1.7.2
 
