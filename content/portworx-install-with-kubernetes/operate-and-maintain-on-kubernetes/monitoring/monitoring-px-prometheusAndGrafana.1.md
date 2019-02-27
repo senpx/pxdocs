@@ -463,7 +463,7 @@ Navigate to the Prometheus web UI by going to `http://<master_ip>:<service_nodep
 
 Download the below files in a folder named `grafanaConfigurations`
 
-Download the Portworx specific Grafana templates to view Portworx [Cluster](https://github.com/portworx/pxdocs/blob/master/content/install-with-other/operate-and-maintain/monitoring/grafana/Portworx_Cluster_Dashboard_Sep_2018_No_AM.json), [Node](https://github.com/portworx/pxdocs/blob/master/content/install-with-other/operate-and-maintain/monitoring/grafana/Portworx_Node_Dashboard_Sep_2018_No_AM.json) and [Volume](https://github.com/portworx/pxdocs/blob/master/content/install-with-other/operate-and-maintain/monitoring/grafana/Portworx_Volume_Dashboard_Sep_2018.json) created for Grafana to view Portworx Volume metrics.
+Download the Portworx specific Grafana templates to view Portworx [Cluster](https://github.com/portworx/pxdocs/blob/master/content/install-with-other/operate-and-maintain/monitoring/grafana/Portworx_Cluster_Dashboard_Sep_2018_No_AM.json), [Node](https://github.com/portworx/pxdocs/blob/master/content/install-with-other/operate-and-maintain/monitoring/grafana/Portworx_Node_Dashboard_Sep_2018_No_AM.json) and [Volume](https://github.com/portworx/pxdocs/blob/master/content/install-with-other/operate-and-maintain/monitoring/grafana/Portworx_Volume_Dashboard_Sep_2018.json) metrics.
 
 Download the Grafana [dashboard configuration](https://github.com/portworx/px-docs/blob/gh-pages/k8s-samples/grafana/config/dashboardConfig.yaml) file
 
