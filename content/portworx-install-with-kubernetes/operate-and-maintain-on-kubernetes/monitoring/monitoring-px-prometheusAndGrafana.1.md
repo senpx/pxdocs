@@ -463,7 +463,7 @@ Navigate to the Prometheus web UI by going to `http://<master_ip>:<service_nodep
 
 Download the below files in a folder named `grafanaConfigurations`
 
-Download the custom [Portworx dashboard](https://github.com/portworx/px-docs/blob/gh-pages/k8s-samples/grafana/dashboards/Portworx_Volume_template.json) created for Grafana to view Portworx Volume metrics.
+Download the custom [Portworx dashboard](https://github.com/portworx/pxdocs/blob/master/content/install-with-other/operate-and-maintain/monitoring/grafana/Portworx_Volume_Dashboard_Sep_2018.json) created for Grafana to view Portworx Volume metrics.
 
 Download the Grafana [dashboard configuration](https://github.com/portworx/px-docs/blob/gh-pages/k8s-samples/grafana/config/dashboardConfig.yaml) file
 
