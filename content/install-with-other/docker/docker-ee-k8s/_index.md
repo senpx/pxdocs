@@ -8,11 +8,12 @@ series: px-docker-install
 ---
 
 This document explains how to install Portworx with Kubernetes on Docker EE 2.x.
-{{<info>}}**Non-Kubernetes:** To install stand-alone PX on Docker EE 2.x follow this [doc](/install-with-other/docker/standalone/).{{</info>}}
 
 ## Prerequisites
 
 You must have Docker EE 2.x running with configured Kubernetes cluster.
+
+{{<info>}}**Non-Kubernetes users:** To install stand-alone Portworx on Docker EE 2.x follow this [doc](/install-with-other/docker/standalone/).{{</info>}}
 
 ## Install Docker EE 2.x
 
@@ -29,6 +30,7 @@ Follow Docker documentation to install UCP https://docs.docker.com/ee/ucp/admin/
 #### Install UCP
 
 Here is an example command to install UCP 3.1.2.
+
 ```text
 docker image pull docker/ucp:3.1.2
 ```
@@ -36,6 +38,7 @@ docker image pull docker/ucp:3.1.2
 ```text
 docker container run --rm -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp:3.1.2 install --host-address <node-ip> --interactive
 ```
+
 {{<info>}}NOTE: Do not init swarm, UCP with do that for you.{{</info>}}
 
 #### Login to UCP

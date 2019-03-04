@@ -4,7 +4,6 @@ weight: 10
 keywords: portworx, kubernetes, PVCs
 description: Learn essential concepts about Storage on Kubernetes
 series: k8s-storage
-hidden: true
 hidesections: true
 ---
 
