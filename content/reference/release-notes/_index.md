@@ -6,6 +6,12 @@ keywords: portworx, release notes
 series: reference
 ---
 
+## 2.0.2.3
+
+### Key Fixes
+
+* PWX-7919 - Geography updates loading etcd causing high cpu usage
+
 ## 2.0.2.2
 
 ### Key Fixes
