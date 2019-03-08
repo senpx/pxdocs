@@ -33,11 +33,11 @@ Portworx requires the following IBM Key Protect credentials to use its APIs
 
 - **Service API Key [IBM_SERVICE_API_KEY]**
 
-    Follow [this](https://console.bluemix.net/docs/services/key-protect/access-api.html#access-api) IBM document to retrieve the API Key.
+    Follow [this](https://cloud.ibm.com/docs/iam?topic=iam-serviceidapikeys#serviceidapikeys) IBM document to retrieve the API Key.
 
 - **Customer Root Key [IBM_CUSTOMER_ROOT_KEY]**
 
-    Follow [this](https://console.bluemix.net/docs/services/key-protect/index.html#create-keys) IBM document to create a Customer Root Key
+    Follow [this](https://cloud.ibm.com/docs/services/key-protect?topic=key-protect-create-root-keys#create-root-keys) IBM document to create a Customer Root Key
 
 - **Base URL [IBM_BASE_URL]**
 
