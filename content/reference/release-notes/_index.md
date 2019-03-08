@@ -6,6 +6,46 @@ keywords: portworx, release notes
 series: reference
 ---
 
+## 2.0.3
+
+### Key Features and Enhancements
+
+* SharedV4 support for DC/OS
+* SharedV4 volume encryption support
+* Support DC/OS Zookeeper for discovery service when using internal kvdb in DC/OS configurations
+* Volume Policy Management Support
+* Support Azure Key Vault for Secret Store
+* Fix Kubernetes CVE for RUNC
+
+### Key Fixes
+
+* PWX-5657 - Fix a corner case where increasing the replication factor of a volume can take much longer when there are multiple levels of volume clones
+* PWX-5762 - Add support for Azure Key Vault
+* PWX-6868 - Prometheus framework update  to add Portworx support
+* PWX-7448 - Show proper error for incorrect pxctl commands
+* PWX-7468 - node-wiper script to wipe the namespace created by k8s secrets
+* PWX-7481 - Shared volume failed to detach with an error that the Volume is mounted while Volume was not mounted 
+* PWX-7485 - Display appropriate message when cluster wide diags can not be collected
+* PWX-7491 - Drive provisioning fixes for issues where extra drives were created than what was specified in the spec.
+* PWX-7512 - Speed up portworx install in DC/OS clusters by installing in each node in parallel.
+* PWX-7513 - In DC/OS, Portworx tasks should restart if they go in LOST state
+* PWX-7516 - The portworx-prometheus framework version need to be corrected.
+* PWX-7571 - CloudSnap : Restore fails sometimes with "failed to get metadata of the backup from cloud"
+* PWX-7595 - Handle spurious storage pool Full/offline condition
+* PWX-7596 - PX creates node labels for every PVs, causing prometheus federation scraping issues
+* PWX-7604 - Anonymize the secrets for Key Management Systems 
+* PWX-7605 - DCOS Portworx-prometheus pod replace does not work as expected
+* PWX-7619 - Make KVDB urls optional
+* PWX-7628 - Alertmanager does not run after installing PX 2.0.2
+* PWX-7639 - DCOS portworx framework should install with default options from config.json.
+* PWX-7650 - Portworx install errors w/ "tar: .: file changed as we read it"
+* PWX-7656 - Shared v4 failover operation fails if management and data interface of px service is different
+* PWX-7661 - [stork] Snapshot status not being updated for all cloudsnaps in groupsnapshot
+* PWX-7686 - Enable Portworx install in AWS instances when auto journaling is enabled.
+* PWX-7743 - Prevent PX install if only the journal disk is given in the install script and no data disks were given.
+* PWX-7766 - When a groupsnapshot request times out, allow for the snapshot scheduler to retry in the next interval or ask the user to retry if it is a manual request
+* PWX-7773 - runc CVE-2019-5736 fix #3169
+
 ## 2.0.2.3
 
 ### Key Fixes
