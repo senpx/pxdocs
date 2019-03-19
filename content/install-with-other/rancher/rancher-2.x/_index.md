@@ -61,9 +61,9 @@ In your environment, you will put the interface dedicated to Portworx traffic in
 
 Set the Install Stork and Lighthouse fields to true.  Define a Portworx Cluster Name that is relevant to your environment.  Set the following version information:
 
-* Stork version: 2.0.1
+* Stork version: 2.1.0
 * Lighthouse version:	2.0.2 
-* Portworx version:	2.0.3
+* Portworx version:	2.0.3.1
 
 Once completed with the form select Launch.  Depending on your Internet speed and the performance of your systems it will take 5-20 minutes to install.  Once completed all process for Portworx will be green.
 
@@ -81,7 +81,7 @@ Now that your Portworx cluster is all set, you can start creating Portworx volum
 For more information about how to create your own storage class and add Portworx storage to your app. For an overview of supported configurations in a PVC, see [Using Dynamic Provisioning](https://docs.portworx.com/portworx-install-with-kubernetes/#using-dynamic-provisioning).
 
 ## What's next?
-Now that you set up Portworx on your IBM Cloud Kubernetes Service cluster, you can explore the following features:
+Now that you set up Portworx on your Kubernetes cluster, you can explore the following features:
 
 - **Use existing Portworx volumes:** If you have an existing Portworx volume that you created manually or that was not automatically deleted when you deleted the PVC, you can statically provision the corresponding PV and PVC and use this volume with your app. For more information, see [Using existing volumes](https://docs.portworx.com/portworx-install-with-kubernetes/#using-the-portworx-volume).
 - **Running stateful sets on Portworx:** If you have a stateful app that you want to deploy as a stateful set into your cluster, you can set up your stateful set to use storage from your Portworx cluster. For more information, see [Create a mysql StatefulSet](https://docs.portworx.com/portworx-install-with-kubernetes/#create-a-mysql-statefulset).
