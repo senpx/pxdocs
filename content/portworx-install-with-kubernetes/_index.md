@@ -25,4 +25,4 @@ Portworx can be installed on cloud or on-premise. Proceed to one of the below se
 
 If you have an existing Portworx cluster, continue to below sections for using and managing Portworx.
 
-{{<homelist series="k8s-postinstall">}}
+{{<homelist series2="k8s-postinstall">}}

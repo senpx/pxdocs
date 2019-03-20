@@ -11,7 +11,7 @@ The helm chart (portworx) deploys Portworx and [Stork](https://docs.portworx.com
 
 ## Pre-requisites
 
-* Helm has been installed on the client machine from where you would install the chart. (https://docs.helm.sh/using_helm/#installing-helm) 
+* Helm has been installed on the client machine from where you would install the chart. (https://docs.helm.sh/using_helm/#installing-helm)
 * Tiller version 2.9.0 and above
 * Portworx pre-requisites [here](/start-here-installation/#installation-prerequisites)
 
@@ -57,7 +57,7 @@ Below are the steps to wipe your entire Portworx installation.
 
 Once you have a running Portworx installation, below sections are useful.
 
-{{<homelist series="k8s-postinstall">}}
+{{<homelist series2="k8s-postinstall">}}
 
 ## Troubleshooting helm installation failures
 

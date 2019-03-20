@@ -1,5 +1,5 @@
 ---
-title: How to run WordPress and MySQL on Kubernetes using Portworx
+title: How to run WordPress and MySQL on Kubernetes on Portworx
 linkTitle: Wordpress
 keywords: portworx, Wordpress, container, Kubernetes, storage
 description: Learn how to deploy a Wordpress site with MySQL using Kubernetes
@@ -258,3 +258,5 @@ spec:
 
 
 `Note:` Portworx PersistentVolume would allow you to recreate the Deployments and Services at this point without losing data, but hostPath loses the data as soon as the Pod stops running...
+
+{{% content "portworx-install-with-kubernetes/application-install-with-kubernetes/shared/discussion-forum.md" %}}

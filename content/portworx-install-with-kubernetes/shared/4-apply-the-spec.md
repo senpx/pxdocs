@@ -30,4 +30,4 @@ kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl status
 
 Once you have a running Portworx installation, below sections are useful.
 
-{{<homelist series="k8s-postinstall">}}
+{{<homelist series2="k8s-postinstall">}}

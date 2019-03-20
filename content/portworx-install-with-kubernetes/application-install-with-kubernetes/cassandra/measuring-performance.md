@@ -4,15 +4,15 @@ description: Learn how to measure the performance of Cassandra with Portworx.
 keywords: portworx, containers, cassandra, storage
 ---
 
-### About this Guide {#about-this-guide}
+## About this Guide {#about-this-guide}
 
 This guide is to measure the performance of running Cassandra with PX volumes. We use Docker directly on EC2 instances. You may chose to use a different way of starting Cassandra and creating Portworx volumes depending on your orchestration environment \(Kubernetes, Mesosphere or Swarm\). Running [Cassandra in Docker containers](https://portworx.com/use-case/cassandra-docker-container/) is one of the most common uses of Portworx.
 
-### Testing Cassandra on PX {#testing-cassandra-on-px}
+## Testing Cassandra on PX {#testing-cassandra-on-px}
 
 Below are the instructions to test and verify Cassandra’s Performance with PX volumes in a Docker environment without a scheduler. We will create three Cassandra docker containers on three machines and each Cassandra container will expose its ports. The test is conducted in AWS, using three r4.2xlarge instance and each with 60GB Ram and 128GB disk for the PX cluster.
 
-#### Setup for the test {#setup-for-the-test}
+### Setup for the test {#setup-for-the-test}
 
 In each of the AWS instance launch PX container and specify the etcd IP e.g. `172.31.45.219` and disk volume e.g.`/dev/xvdb`
 
@@ -58,9 +58,9 @@ NODE_3_IP=172.31.47.121
 ```
 
 {{<info>}}
-**Note:**  
+**Note:**
 Download [the `cassandra_conf.tar` file](https://s3.amazonaws.com/rlui-dcos-hadoop/cassandra_conf.tar) which includes cassandra.yaml file which is using TCP port 17000 instead of 7000. The reason to use custom cassandra.yaml file is because as of this writing, PX is occupying the port 7000, and the default Cassandra data and storage port is also on port 7000. Use this custom cassandra configuration to avoid this conflict. Download the cassandra\_conf.tar file and extract it on `/etc` folder. This step is not required if you are running with Kubernets or Mesosphere.
-</info>
+{{</info>}}
 
 For each AWS instance do a docker run and launch the Cassandra latest version Docker container.
 
@@ -284,3 +284,5 @@ docker exec -it cass-`hostname` cassandra-stress mixed n=10000000               
 ```
 
 Generally Cassandra stress test should be run on every Cassandra containers about the same time to increase the load. And using the same keyspace on the same test run, requires to use different `sequence` to separate between each containers operation on the same keyspace `(e.g. 1..10000 and 10001..20000 and so on)`.
+
+{{% content "portworx-install-with-kubernetes/application-install-with-kubernetes/shared/discussion-forum.md" %}}

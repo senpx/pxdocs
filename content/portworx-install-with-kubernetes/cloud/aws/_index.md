@@ -20,4 +20,4 @@ Based on how you deployed Kubernetes, select one of the below to Install Portwor
 
 Once you have a running Portworx installation, below sections are useful.
 
-{{<homelist series="k8s-postinstall">}}
+{{<homelist series2="k8s-postinstall">}}

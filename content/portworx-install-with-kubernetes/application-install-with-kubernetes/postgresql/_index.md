@@ -1,5 +1,6 @@
 ---
-title: Postgresql
+title: Postgresql on Portworx
+linkTitle: Postgresql
 keywords: portworx, postgres, postgresql
 description: Use this guide to install and run PostgreSQL using Kubernetes
 weight: 2
@@ -8,13 +9,13 @@ noicon: true
 
 This page provides instructions for deploying PostgreSQL with Portworx on Kubernetes.
 
-### Create a PostgreSQL Portworx StorageClass
+## Create a PostgreSQL Portworx StorageClass
 
 Create the file`px-postgres-sc.yaml` with the following:
 
 ```text
 
-##### Portworx storage class
+#### Portworx storage class
 kind: StorageClass
 apiVersion: storage.k8s.io/v1beta1
 metadata:
@@ -29,13 +30,13 @@ Then run this command:
 
 `kubectl apply -f px-postgres-sc.yaml`
 
-### Create a PostgreSQL Portworx PersistentVolumeClaim
+## Create a PostgreSQL Portworx PersistentVolumeClaim
 
 Create the file `px-postgres-vol.yaml` with the following contents:
 
 ```text
 
-##### Portworx persistent volume claim
+#### Portworx persistent volume claim
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -55,7 +56,7 @@ Then run this command:
 
 `kubectl apply -f px-postgres-vol.yaml`
 
-### Deploy PostgreSQL using Kubernetes Deployment
+## Deploy PostgreSQL using Kubernetes Deployment
 
 We are recommending to use [“Stork”](/portworx-install-with-kubernetes/storage-operations/stork) for Postgres deployment as a scheduler. Stork is an opensource project that helps achieve even tighter integration of Portworx with Kubernetes. It allows users to co-locate pods with their data, provides seamless migration of pods in case of storage errors and makes it easier to create and restore snapshots of Portworx volumes. Stork consists of 2 components, the stork scheduler, and an extender. Both of these components run in HA mode with three replicas by default.
 
@@ -87,7 +88,7 @@ spec:
       labels:
         app: postgres
     spec:
-      schedulerName: stork    
+      schedulerName: stork
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -126,7 +127,7 @@ Now let’s deploy PostgreSQL using following commands:
 
 `kubectl apply -f px-postgres-app.yaml`
 
-### Validate StorageClass, PersistentVolumeClaim and PostgreSQL Deployment
+## Validate StorageClass, PersistentVolumeClaim and PostgreSQL Deployment
 
 ```text
 kubectl get sc
@@ -142,7 +143,7 @@ NAME                        READY     STATUS    RESTARTS   AGE
 postgres-86cb8587c4-l9r48   1/1       Running   0          1h
 ```
 
-### Validate PostgreSQL DB Server
+## Validate PostgreSQL DB Server
 
 To access via docker exec:
 
@@ -181,3 +182,5 @@ pgbench=# \l
 
 pgbench=# \q
 ```
+
+{{% content "portworx-install-with-kubernetes/application-install-with-kubernetes/shared/discussion-forum.md" %}}

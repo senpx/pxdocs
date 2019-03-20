@@ -1,5 +1,5 @@
 ---
-title: Elastic Search and Kibana on Kubernetes
+title: Elastic Search and Kibana on Kubernetes on Portworx
 linkTitle: Elastic Search and Kibana
 keywords: portworx, container, Kubernetes, storage, Docker, k8s, pv, persistent disk, elastic, elastic stack, elastic search, kibana
 description: Find out how to easily deploy Elasticsearch and Kibana on Kubernetes using Portworx to preserve state!
@@ -867,3 +867,5 @@ Decomissioning a kubernetes node deletes the node object form the APIServer.
 Before that you would want to decomission your Portworx node from the cluster.
 Follow the steps mentioned in [Decommision a Portworx node](/portworx-install-with-kubernetes/operate-and-maintain-on-kubernetes/uninstall/decommission-a-node)
 Once done, delete the kubernetes node if it requires to be deleted permanently.
+
+{{% content "portworx-install-with-kubernetes/application-install-with-kubernetes/shared/discussion-forum.md" %}}

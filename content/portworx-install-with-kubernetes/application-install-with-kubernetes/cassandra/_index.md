@@ -1,5 +1,5 @@
 ---
-title: Cassandra on Kubernetes
+title: Cassandra on Kubernetes on Portworx
 linkTitle: Cassandra
 keywords: portworx, container, Kubernetes, storage, Docker, k8s, pv, persistent disk, cassandra
 description: See how Portworx can be used to deploy stateful Cassandra on top of Kubernetes.
@@ -11,7 +11,7 @@ aliases:
 
 This page provides instructions for deploying Cassandra with Portworx on Kubernetes.
 
-### Installation
+## Installation
 
 This page installs Cassandra as a [Statefulset](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
 
@@ -220,13 +220,13 @@ kubectl get pods -l app=cassandra -o json | jq '.items[] | {"name": .metadata.na
   "hostname": "k8s-2",
   "hostIP": "10.142.0.5",
   "PodIP": "10.0.160.2"
-}  
+}
 {
   "name": "cassandra-1",
   "hostname": "k8s-0",
   "hostIP": "10.142.0.3",
   "PodIP": "10.0.64.2"
-}  
+}
 {
   "name": "cassandra-2",
   "hostname": "k8s-1",
@@ -266,7 +266,7 @@ Volume  :  651254593135168442
 
 ```
 
-### Scaling {#scaling}
+## Scaling {#scaling}
 
 Portworx runs as a Daemonset in Kubernetes. Hence when you add a node or a worker to your kuberentes cluster you do not need to explicitly run Portworx on it.
 
@@ -371,9 +371,9 @@ UN  10.0.160.2  125.1 KiB   32           45.3%             a56a6f70-d2e3-449a-8a
 UN  10.0.64.3   159.94 KiB  32           26.9%             ae7e3624-175b-4676-9ac3-6e3ad4edd461  Rack1-K8Demo
 ```
 
-### Failover {#failover}
+## Failover {#failover}
 
-#### Pod Failover
+### Pod Failover
 
 Verify that there is a 5 node Cassandra cluster running on your kubernetes cluster.
 
@@ -515,7 +515,7 @@ kubectl exec cassandra-1 -- cqlsh -e 'select * from demodb.emp'
 (1 rows)
 ```
 
-#### Node Failover
+### Node Failover
 
 Decomissioning a kubernetes node deletes the node object form the APIServer. Before that you would want to decomission your Portworx node from the cluster. Click on the link below and follow the steps:
 
@@ -568,7 +568,7 @@ k8s-1        Ready         cassandra-data-cassandra-1=true,cassandra-data-cassan
 k8s-2        Ready         cassandra-data-cassandra-0=true,cassandra-data-cassandra-2=true
 k8s-3        Ready         cassandra-data-cassandra-3=true
 k8s-4        Ready         cassandra-data-cassandra-4=true
-k8s-5        Ready         
+k8s-5        Ready
 k8s-master   Ready         cassandra-data-cassandra-0=true,cassandra-data-cassandra-2=true
 ```
 
@@ -612,14 +612,16 @@ k8s-0        Ready         cassandra-data-cassandra-1=true,cassandra-data-cassan
 k8s-2        Ready         cassandra-data-cassandra-0=true,cassandra-data-cassandra-2=true
 k8s-3        Ready         cassandra-data-cassandra-3=true
 k8s-4        Ready         cassandra-data-cassandra-4=true
-k8s-5        Ready               
+k8s-5        Ready
 k8s-master   Ready         cassandra-data-cassandra-0=true,cassandra-data-cassandra-2=true
 ```
 
-### See Also {#see-also}
+## See Also {#see-also}
 
 For further reading on Cassandra:
 
 * [Cassandra Docker](https://portworx.com/use-case/cassandra-docker-container/) How to run Cassandra in Docker containers
 * [Run multiple Cassandra rings on the same hosts](https://portworx.com/run-multiple-cassandra-clusters-hosts/)
 * [Cassandra stress test with Portworx](/portworx-install-with-kubernetes/application-install-with-kubernetes/cassandra)
+
+{{% content "portworx-install-with-kubernetes/application-install-with-kubernetes/shared/discussion-forum.md" %}}

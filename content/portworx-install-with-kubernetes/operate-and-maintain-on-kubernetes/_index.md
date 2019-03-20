@@ -6,7 +6,7 @@ keywords: portworx, container, kubernetes
 description: Operations guide for running Portworx in Production with Kubernetes
 series: top
 icon: /img/banner__operate.png
-series: k8s-postinstall
+series2: k8s-postinstall
 hidesections: true
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Kafka with Zookeeper
+title: Kafka with Zookeeper on Portworx
+linkTitle: Kafka with Zookeeper
 keywords: portworx, container, Kubernetes, storage, Docker, k8s, pv, persistent disk, kafka, zookeeper
 description: See how you can deploy Apache Kafka with Zookeeper on Kubernetes with state using Portworx.
 weight: 2
@@ -8,7 +9,7 @@ noicon: true
 
 This page provides instructions for deploying Apache Kafka and Zookeeper with Portworx on Kubernetes.
 
-#### Portworx StorageClass for Volume Provisioning {#portworx-storageclass-for-volume-provisioning}
+## Portworx StorageClass for Volume Provisioning {#portworx-storageclass-for-volume-provisioning}
 
 Portworx provides volume\(s\) to Zookeeper as well as Kafka. Create `portworx-sc.yaml` with Portworx as the provisioner.
 
@@ -44,7 +45,7 @@ Then apply the configuration:
 kubectl apply -f portworx-sc.yaml
 ```
 
-#### Install Zookeeper {#install-zookeeper}
+## Install Zookeeper {#install-zookeeper}
 
 A statefulset in Kubernetes requires a headless service to provide network identity to the pods it creates. A headless service is also needed when Kafka is deployed  A headless service does not use a cluster IP. For information on headless services, read this [article](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
 
@@ -230,7 +231,7 @@ Apply this configuration
 kubectl apply -f zookeeper-all.yaml
 ```
 
-#### Post Install Status - Zookeeper {#post-install-status---zookeeper}
+### Post Install Status - Zookeeper {#post-install-status---zookeeper}
 
 Verify that the zookeeper pods are running with provisioned Portworx volumes.
 
@@ -307,7 +308,7 @@ numChildren = 0
 
 ```
 
-#### Install Kafka {#install-kafka}
+### Install Kafka {#install-kafka}
 
 Obtain the Zookeeper node FQDN to be used in the configuration for Kafka.
 
@@ -558,7 +559,7 @@ Apply the manifest
 kubectl apply -f kafka-all.yaml
 ```
 
-#### Post Install Status - Kafka {#post-install-status---kafka}
+### Post Install Status - Kafka {#post-install-status---kafka}
 
 Verify Kafka resources created on the cluster.
 
@@ -664,7 +665,7 @@ Publish messages on the topic
 bin/kafka-console-producer.sh --broker-list kafka-0.broker.kafka.svc.cluster.local:9092,kafka-1.broker.kafka.svc.cluster.local:9092,kafka-2.broker.kafka.svc.cluster.local:9092 --topic px-kafka-topic
 
 >Hello Kubernetes!
->This is Portworx saying hello            
+>This is Portworx saying hello
 >Kafka says, I am just a messenger
 
 ```
@@ -679,7 +680,7 @@ Hello Kubernetes!
 Kafka says, I am just a messenger
 ```
 
-### Scaling {#scaling}
+## Scaling {#scaling}
 
 Portworx runs as a Daemonset in Kubernetes. Hence when you add a new node to your kuberentes cluster you do not need to explicitly run Portworx on it.
 
@@ -807,9 +808,9 @@ numChildren = 0
 
 ```
 
-### Failover {#failover}
+## Failover {#failover}
 
-#### Pod Failover for Zookeeper {#pod-failover-for-zookeeper}
+### Pod Failover for Zookeeper {#pod-failover-for-zookeeper}
 
 Killing the zookeeper java process in the container terminates the pod. You could alternatively delete the pod as well. Portworx volumes provides durable storage to the Zookeeper pods which are run as a statefulset. Get the earlier inserted value from zookeeper to verify the same.
 
@@ -845,7 +846,7 @@ numChildren = 0
 
 ```
 
-#### Pod Failover for Kafka {#pod-failover-for-kafka}
+### Pod Failover for Kafka {#pod-failover-for-kafka}
 
 Find the hosts of the running kafka cluster, cordon a node so that pods are scheduled on it. Kill a kafka pod and notice that it is scheduled on a newer node, joining the cluster back again with durable storage which is backed by the PX volume.
 
@@ -920,7 +921,7 @@ Topic: px-kafka-topic   Partition: 2    Leader: 2       Replicas: 2,0,1 Isr: 2,0
 
 ```
 
-#### Node Failover {#node-failover}
+### Node Failover {#node-failover}
 
 In the case of a statefulset if the node is unreachable, which could happen in either of two cases
 
@@ -932,3 +933,5 @@ There is no way for kubernetes to know which of the case is it. Hence Kubernetes
 For further information : [Statefulset Pod Deletion](https://kubernetes.io/docs/tasks/run-application/force-delete-stateful-set-pod/)
 
 Decomissioning a kubernetes node deletes the node object form the APIServer. Before that you would want to decomission your Portworx node from the cluster. Follow the steps mentioned in [Decommision a Portworx node](/portworx-install-with-kubernetes/operate-and-maintain-on-kubernetes/uninstall/decommission-a-node) Once done, delete the kubernetes node if it requires to be deleted permanently.
+
+{{% content "portworx-install-with-kubernetes/application-install-with-kubernetes/shared/discussion-forum.md" %}}
