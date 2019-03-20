@@ -1,6 +1,6 @@
 ---
 title: Portworx on Rancher 2.x
-linkTitle: Install Portworx on Rancher 2.x
+linkTitle: Rancher 2.x
 keywords: portworx, PX-Developer, container, Rancher, storage
 description: Instructions on installing Portworx using public catalog (Helm Chart) on Rancher 2.x 
 weight: 6
@@ -46,18 +46,20 @@ Portworx provides a helm chart for Rancher 2.x that is available in the public c
 ![Get K8S Version](/img/px-rancher-1.png)
 
 **KEY VALUE STORE PARAMETERS** 
-Under configuration enter your Etcd information.  This is a list separated by semicolons ie: For example 
-`etcd:http://70.0.99.40:2379;etcd:http://70.0.99.51:2379;etcd:http://70.0.99.41:2379`  Or select the internal KVDB option.
+From version 2.0, Portworx can be installed with built-in internal kvdb. By selecting the internal kvdb option true, It removes the requirement of an external kvdb such as etcd or consul to be installed along side of Portworx. Portworx will automatically deploy an internal kvdb cluster on a set of 3 nodes within the Portworx cluster. 
+
+If you plan to use the external kvdb option, Under kvdb configuration enter your Etcd information.  This is a list separated by semicolons ie: For example 
+`etcd://myetc1.company.com:2379;etcd://myetc2.company.com:2379;etcd://myetc3.company.com:2379`  
 
 ![Get K8S Version](/img/px-rancher-2.png)
 
-**STORAGE PARAMETERS**
-In your environment set the drives field to the LVM that you will be using for Portworx storage.   A recommended practice is to add a separate SSD block device as a Journal drive.  If you have one available enter auto in the Journal device section.
+***STORAGE PARAMETERS***
+In your environment set the drives field to the any block device that you will be using for Portworx storage.   A recommended practice is to add a separate SSD block device as a Journal drive.  If you have one available enter auto in the Journal device section.
 
-**NETWORK PARAMETERS**
+***NETWORK PARAMETERS***
 In your environment, you will put the interface dedicated to Portworx traffic in the Data Network Interface field, and enter the Kubernetes host interface in the Management Network Interface.
 
-**ADVANCED PARAMETERS**
+***ADVANCED PARAMETERS***
 
 Set the Install Stork and Lighthouse fields to true.  Define a Portworx Cluster Name that is relevant to your environment.  Set the following version information:
 
@@ -78,12 +80,12 @@ Now that your Portworx cluster is all set, you can start creating Portworx volum
 - Number of data copies that you want to store across worker nodes
 - Sharing of volumes across pods
 
-For more information about how to create your own storage class and add Portworx storage to your app. For an overview of supported configurations in a PVC, see [Using Dynamic Provisioning](https://docs.portworx.com/portworx-install-with-kubernetes/#using-dynamic-provisioning).
+For more information about how to create your own storage class and add Portworx storage to your app. For an overview of supported configurations in a PVC, see [Using Dynamic Provisioning](/portworx-install-with-kubernetes/#using-dynamic-provisioning).
 
-## What's next?
+## Post-Install
 Now that you set up Portworx on your Kubernetes cluster, you can explore the following features:
 
-- **Use existing Portworx volumes:** If you have an existing Portworx volume that you created manually or that was not automatically deleted when you deleted the PVC, you can statically provision the corresponding PV and PVC and use this volume with your app. For more information, see [Using existing volumes](https://docs.portworx.com/portworx-install-with-kubernetes/#using-the-portworx-volume).
-- **Running stateful sets on Portworx:** If you have a stateful app that you want to deploy as a stateful set into your cluster, you can set up your stateful set to use storage from your Portworx cluster. For more information, see [Create a mysql StatefulSet](https://docs.portworx.com/portworx-install-with-kubernetes/#create-a-mysql-statefulset).
-- **Running your pods hyperconverged:** You can configure your Portworx cluster to schedule pods on the same worker node where the pod's volume resides. This setup is also referred to as hyperconverged and can improve the data storage performance. For more information, see [Run pods on same host as a volume](https://docs.portworx.com/portworx-install-with-kubernetes/).
-- **Creating snapshots of your Portworx volumes:** You can save the current state of a volume and its data by creating a Portworx snapshot. Snapshots can be stored on your local Portworx cluster or in the Cloud. For more information, see [Create and use local snapshots](https://docs.portworx.com/portworx-install-with-kubernetes/).
+- **Use existing Portworx volumes:** If you have an existing Portworx volume that you created manually or that was not automatically deleted when you deleted the PVC, you can statically provision the corresponding PV and PVC and use this volume with your app. For more information, see [Using existing volumes](/portworx-install-with-kubernetes/#using-the-portworx-volume).
+- **Running stateful sets on Portworx:** If you have a stateful app that you want to deploy as a stateful set into your cluster, you can set up your stateful set to use storage from your Portworx cluster. For more information, see [Create a mysql StatefulSet](/portworx-install-with-kubernetes/#create-a-mysql-statefulset).
+- **Running your pods hyperconverged:** You can configure your Portworx cluster to schedule pods on the same worker node where the pod's volume resides. This setup is also referred to as hyperconverged and can improve the data storage performance. For more information, see [Run pods on same host as a volume](/portworx-install-with-kubernetes/).
+- **Creating snapshots of your Portworx volumes:** You can save the current state of a volume and its data by creating a Portworx snapshot. Snapshots can be stored on your local Portworx cluster or in the Cloud. For more information, see [Create and use local snapshots](/portworx-install-with-kubernetes/).
