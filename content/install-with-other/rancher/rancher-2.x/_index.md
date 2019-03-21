@@ -45,7 +45,7 @@ Portworx provides a helm chart for Rancher 2.x that is available in the public c
 
 ![Get K8S Version](/img/px-rancher-1.png)
 
-**KEY VALUE STORE PARAMETERS** 
+### KEY VALUE STORE PARAMETERS
 From version 2.0, Portworx can be installed with built-in internal kvdb. By selecting the internal kvdb option true, It removes the requirement of an external kvdb such as etcd or consul to be installed along side of Portworx. Portworx will automatically deploy an internal kvdb cluster on a set of 3 nodes within the Portworx cluster. 
 
 If you plan to use the external kvdb option, Under kvdb configuration enter your Etcd information.  This is a list separated by semicolons ie: For example 
@@ -53,13 +53,13 @@ If you plan to use the external kvdb option, Under kvdb configuration enter your
 
 ![Get K8S Version](/img/px-rancher-2.png)
 
-***STORAGE PARAMETERS***
+### STORAGE PARAMETERS
 In your environment set the drives field to the any block device that you will be using for Portworx storage.   A recommended practice is to add a separate SSD block device as a Journal drive.  If you have one available enter auto in the Journal device section.
 
-***NETWORK PARAMETERS***
+### NETWORK PARAMETERS
 In your environment, you will put the interface dedicated to Portworx traffic in the Data Network Interface field, and enter the Kubernetes host interface in the Management Network Interface.
 
-***ADVANCED PARAMETERS***
+### ADVANCED PARAMETERS
 
 Set the Install Stork and Lighthouse fields to true.  Define a Portworx Cluster Name that is relevant to your environment.  Set the following version information:
 
@@ -71,18 +71,7 @@ Once completed with the form select Launch.  Depending on your Internet speed an
 
 ![Get K8S Version](/img/px-rancher-3.png)
 
-## Step 5: Adding Portworx storage to your apps
-
-Now that your Portworx cluster is all set, you can start creating Portworx volumes by using [Kubernetes dynamic provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/). The Portworx Helm chart already set up a few default storage classes in your cluster that you can see by running the `kubectl get storageclasses | grep portworx` command. You can also create your own storage class to define settings, such as:
-
-- Encryption for a volume
-- IO priority of the disk where you want to store the data
-- Number of data copies that you want to store across worker nodes
-- Sharing of volumes across pods
-
-For more information about how to create your own storage class and add Portworx storage to your app. For an overview of supported configurations in a PVC, see [Using Dynamic Provisioning](/portworx-install-with-kubernetes/#using-dynamic-provisioning).
-
-## Post-Install
+## Step 5: Post-Install
 
 Once you have a running Portworx installation, below sections are useful.
 
