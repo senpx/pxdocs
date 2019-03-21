@@ -1,10 +1,11 @@
 ---
-title: (Kubernetes) Encrypting PVCs using Google Cloud KMS
+title: Encrypting Kubernetes PVCs with Google Cloud KMS
 weight: 1
 keywords: Portworx, Google, Google Cloud, KMS, containers, storage, encryption
 description: Instructions on using Google Cloud KMS with Portworx for encrypting PVCs
 noicon: true
 series: gcloud-secret-uses
+series2: k8s-pvc-enc
 hidden: true
 ---
 

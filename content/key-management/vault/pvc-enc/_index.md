@@ -1,10 +1,11 @@
 ---
-title: (Kubernetes) Encrypting PVCs using Vault
+title: Encrypting Kubernetes PVCs with Vault
 weight: 1
 keywords: Portworx, Hashicorp, Vault, containers, storage, encryption
 description: Instructions on using Vault with Portworx for encrypting PVCs in Kubernetes
 noicon: true
 series: vault-secret-uses
+series2: k8s-pvc-enc
 hidden: true
 ---
 
