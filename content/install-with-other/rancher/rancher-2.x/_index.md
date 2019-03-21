@@ -83,9 +83,7 @@ Now that your Portworx cluster is all set, you can start creating Portworx volum
 For more information about how to create your own storage class and add Portworx storage to your app. For an overview of supported configurations in a PVC, see [Using Dynamic Provisioning](/portworx-install-with-kubernetes/#using-dynamic-provisioning).
 
 ## Post-Install
-Now that you set up Portworx on your Kubernetes cluster, you can explore the following features:
 
-- **Use existing Portworx volumes:** If you have an existing Portworx volume that you created manually or that was not automatically deleted when you deleted the PVC, you can statically provision the corresponding PV and PVC and use this volume with your app. For more information, see [Using existing volumes](/portworx-install-with-kubernetes/#using-the-portworx-volume).
-- **Running stateful sets on Portworx:** If you have a stateful app that you want to deploy as a stateful set into your cluster, you can set up your stateful set to use storage from your Portworx cluster. For more information, see [Create a mysql StatefulSet](/portworx-install-with-kubernetes/#create-a-mysql-statefulset).
-- **Running your pods hyperconverged:** You can configure your Portworx cluster to schedule pods on the same worker node where the pod's volume resides. This setup is also referred to as hyperconverged and can improve the data storage performance. For more information, see [Run pods on same host as a volume](/portworx-install-with-kubernetes/).
-- **Creating snapshots of your Portworx volumes:** You can save the current state of a volume and its data by creating a Portworx snapshot. Snapshots can be stored on your local Portworx cluster or in the Cloud. For more information, see [Create and use local snapshots](/portworx-install-with-kubernetes/).
+Once you have a running Portworx installation, below sections are useful.
+
+{{<homelist series="k8s-postinstall">}}
